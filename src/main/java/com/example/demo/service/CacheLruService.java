@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class CacheLruService {
 
 	private final Map<String, String> cache;
-	@Value("${cache.capacity:5}")
+	@Value("${cache.capacity}")
 	private int capacity;
 	public CacheLruService() {
 		this.cache=new LinkedHashMap<>();
@@ -22,7 +22,7 @@ public class CacheLruService {
 	public synchronized void put(String key,String value) {
 		if(cache.containsKey(key)) {
 			cache.put(key, value);
-			return;
+			return  ;
 		}
 		if(cache.size()>=capacity) {
 			String X=cache.keySet().iterator().next();

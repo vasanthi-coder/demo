@@ -34,12 +34,12 @@ public class CacheLruController {
 	@DeleteMapping("/delete/{key}")
 	public ResponseEntity<Void> delete(@PathVariable String key){
 		CacheLrtService.delete(key);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().build();
 	}
 	@DeleteMapping("/clear/{key}")
 	public ResponseEntity<Void> clear(){
 		CacheLrtService.clear();
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().build();
 	}
 	
 	
