@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.CacheLruService;
 
 @RestController
-@RequestMapping("/cacheLRU")
+@RequestMapping("/cacheLRU/cache")
 public class CacheLruController {
 
 	@Autowired
 	private CacheLruService CacheLrtService;
-	@GetMapping("/{key}")
+	@GetMapping("/get/{key}")
 	public ResponseEntity<String> get(@PathVariable String key){
 		String value = CacheLrtService.get(key);
 		if(value==null) {
